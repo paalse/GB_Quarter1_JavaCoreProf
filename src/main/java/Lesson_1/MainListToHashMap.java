@@ -1,7 +1,6 @@
 package Lesson_1;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -35,17 +34,20 @@ public class MainListToHashMap {
 
     public static void main(String[] args) {
         List<SomeClass> origin = new ArrayList<SomeClass>();
-        origin.add(new SomeClass(1,"Test1"));
-        origin.add(new SomeClass(2,"Test1"));
-        origin.add(new SomeClass(3,"Test1"));
-        origin.add(new SomeClass(4,"Test2"));
-        origin.add(new SomeClass(5,"Test2"));
-        origin.add(new SomeClass(6,"Test3"));
-        origin.add(new SomeClass(7,"Test3"));
-        origin.add(new SomeClass(8,"Test4"));
+        origin.add(new SomeClass(1, "Test1"));
+        origin.add(new SomeClass(2, "Test1"));
+        origin.add(new SomeClass(3, "Test1"));
+        origin.add(new SomeClass(4, "Test2"));
+        origin.add(new SomeClass(5, "Test2"));
+        origin.add(new SomeClass(6, "Test3"));
+        origin.add(new SomeClass(7, "Test3"));
+        origin.add(new SomeClass(8, "Test4"));
 
-        HashMap<String, ArrayList> result = new HashMap<String, ArrayList>();
+        HashMap<String, ArrayList<Integer>> result = new HashMap<String, ArrayList<Integer>>();
+        origin.forEach(i -> result.computeIfAbsent(i.getName(), k -> new ArrayList<Integer>()).add(i.getId()));
 
+
+        /*
         for (SomeClass element : origin) {
             if (result.containsKey(element.getName())) {
                 result.get(element.getName()).add(element.getId());
@@ -53,5 +55,7 @@ public class MainListToHashMap {
                 result.put(element.getName(), new ArrayList(Arrays.asList(element.getId())));
             }
         }
+ */
+
     }
 }
