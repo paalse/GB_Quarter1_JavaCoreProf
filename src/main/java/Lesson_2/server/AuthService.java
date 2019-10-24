@@ -155,8 +155,7 @@ public class AuthService {
         try {
             ResultSet rs = stmt.executeQuery("SELECT h.msg_date, m.nickname, h.message FROM msghistory h JOIN main m on h.user_id = m.id");
             while (rs.next()) {
-                //!!! Разобраться с преобразованием даты !!!
-                String msgDate = ""; //= new SimpleDateFormat("dd.MM.yyyy HH:mm").format(rs.getString(1));
+                String msgDate = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(rs.getDate(1));
                 result = result + msgDate + " " + rs.getString(2) + ": " + rs.getString(3) + "\n";
             }
         } catch (SQLException e) {
