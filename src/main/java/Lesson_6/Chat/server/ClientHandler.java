@@ -22,7 +22,7 @@ public class ClientHandler {
         return nick;
     }
 
-    public ClientHandler(Server server, Socket socket) {
+    public ClientHandler(Lesson_6.Chat.server.Server server, Socket socket) {
         try {
             this.socket = socket;
             this.server = server;
